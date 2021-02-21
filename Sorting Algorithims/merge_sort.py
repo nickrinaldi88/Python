@@ -1,4 +1,5 @@
 def merge(left_list, right_list):
+    
     sorted_list = []
     left_list_index = right_list_index = 0
 
@@ -35,15 +36,16 @@ def merge(left_list, right_list):
 
 def merge_sort(nums):
     # If the list is a single element, return it
-    if len(nums) <= 1:
+    if len(nums) <= 1: # if the len(nums) is 1, we've reached our goal, dividing it into a single sized elements
+        # and we break out of the function 
         return nums
 
     # Use floor division to get midpoint, indices must be integers
     mid = len(nums) // 2
 
     # Sort and merge each half
-    left_list = merge_sort(nums[:mid])
-    right_list = merge_sort(nums[mid:])
+    left_list = merge_sort(nums[:mid]) # merge_sort([120, 45])
+    right_list = merge_sort(nums[mid:]) # merge_sort([68, 250, 176])
 
     # Merge the sorted lists into a new one
     return merge(left_list, right_list)
